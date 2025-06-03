@@ -14,7 +14,7 @@ class VigenereCipher:
                 else:
                     encrypted_text += chr((ord(char) - ord('a') +
                     key_shift) % 26 + ord('a'))
-                    key_index += 1
+                key_index += 1
             else:
                 encrypted_text += char
         return encrypted_text
