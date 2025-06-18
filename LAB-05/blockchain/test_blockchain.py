@@ -16,10 +16,12 @@ new_block = my_blockchain.create_block(new_proof, previous_hash)
 for block in my_blockchain.chain:
     print(f"Block #{block.index}")
     print("Timestamp:", block.timestamp)
-    print("Transactions:", block.transactions)
-    print("Proof:", block.proof)
-    print("Previous Hash:", block.previous_hash)
-    print("Hash:", block.hash)
-    print("---------------------------------")
-    
-print("Is Blockchain Valid:", my_blockchain.is_chain_valid(my_blockchain.chain))
+    print("Transactions:")
+    for transaction in block.transactions: # Hoặc block.data nếu bạn đã đổi tên
+        print(transaction)
+    print(f"Proof: {block.proof}") # Di chuyển xuống đây để đúng thứ tự in ra của bạn
+    print(f"Previous Hash: {block.previous_hash}")
+    print(f"Hash: {block.hash}")
+    print("------------------------------------") # Để có khoảng trắng giữa các block, dễ nhìn hơn
+
+print(f"Is Blockchain Valid?: {my_blockchain.is_chain_valid(my_blockchain.chain)}")
